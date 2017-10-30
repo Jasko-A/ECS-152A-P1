@@ -11,7 +11,7 @@ clientSocket = socket(AF_INET, SOCK_DGRAM)
 clientSocket.settimeout(1) 	#sets timeout after message has been sent to the sever
 
 for i in range(1, 11):
-	message = 'Ping ' + str(i) + ' ' + datetime.utcnow().strftime("%Y-%m-%d ") + dayOfWeek[datetime.utcnow().strftime("%a")] +  datetime.utcnow().strftime(" %H:%M %z")
+	message = 'Ping ' + str(i) + ' ' + datetime.utcnow().strftime("%Y-%m-%d ") + dayOfWeek[datetime.utcnow().strftime("%a")] +  datetime.utcnow().strftime(" %H:%M ") + strftime("%Z", gmtime())
 	print(message)
 	clientSocket.sendto(str.encode(message),(serverName, serverPort))
 	start_time = clock()
